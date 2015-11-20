@@ -1,0 +1,124 @@
+<ioc
+    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xmlns:xsd='http://www.w3.org/2001/XMLSchema'
+    xmlns='http://schemas.mandiant.com/2010/ioc' id='f4376f8b-bb7d-44fe-87e6-77dc1a46463a' last-modified='2015-11-17T04:25:53.380Z'>
+    <short_description>CTB-locker IOC (experimental)</short_description>
+    <description>CTB-locker IOC (experimental)</description>
+    <authored_by>Jos Wetzels</authored_by>
+    <authored_date>2015-11-17T04:25:53.380Z</authored_date>
+    <links/>
+    <definition>
+        <Indicator operator='OR' id='5c511973-d0cf-46cb-9f54-7cfb46d4f3c8'>
+            <Indicator operator='OR' id='044004e2-3030-4a31-aac3-51d898ca3c1f'>
+                <Indicator operator='AND' id='829c43da-589c-451e-ae51-b6ebee5add71'>
+                    <IndicatorItem condition='contains' id='9a5cb612-6564-4f23-ba5c-5a55ec60a52f'>
+                        <Context document='FileItem' search='FileItem/StringList/string' type='mir'/>
+                        <Content type='string'>jssestaew3e7ao3q</Content>
+                    </IndicatorItem>
+                    <IndicatorItem condition='contains' id='99c5cd20-aab6-4320-89be-80b509acda95'>
+                        <Context document='FileItem' search='FileItem/StringList/string' type='mir'/>
+                        <Content type='string'>rmxlqabmvfnw4wp4</Content>
+                    </IndicatorItem>
+                </Indicator>
+                <Indicator operator='AND' id='fdbd2db3-ed71-4991-b54c-223f9966219f'>
+                    <Indicator operator='OR' id='1dfca33c-508a-4290-a534-08c7d609f8a8'>
+                        <IndicatorItem condition='contains' id='9032cc00-23d7-48fd-96d2-cd280fdb6e51'>
+                            <Context document='Network' search='Network/String' type='mir'/>
+                            <Content type='string'>jssestaew3e7ao3q</Content>
+                        </IndicatorItem>
+                        <IndicatorItem condition='contains' id='4af4b300-7155-4152-9f4e-c46441bfec71'>
+                            <Context document='Network' search='Network/String' type='mir'/>
+                            <Content type='string'>rmxlqabmvfnw4wp4</Content>
+                        </IndicatorItem>
+                    </Indicator>
+                    <Indicator operator='OR' id='f354ffe8-f3b7-4cb3-8c3b-31761c8da28c'>
+                        <IndicatorItem condition='contains' id='4e5f83f6-b249-4667-a584-9452dbe2b88a'>
+                            <Context document='Network' search='Network/String' type='mir'/>
+                            <Content type='string'>tor2web</Content>
+                        </IndicatorItem>
+                        <IndicatorItem condition='contains' id='4a6f9783-2850-4ee8-a5c6-bc2c4d62d0af'>
+                            <Context document='Network' search='Network/String' type='mir'/>
+                            <Content type='string'>onion</Content>
+                        </IndicatorItem>
+                        <IndicatorItem condition='contains' id='67b9fa0e-c24a-405b-917a-6128ae891d81'>
+                            <Context document='Network' search='Network/String' type='mir'/>
+                            <Content type='string'>torlweb</Content>
+                        </IndicatorItem>
+                    </Indicator>
+                </Indicator>
+            </Indicator>
+            <Indicator operator='OR' id='db07be8b-cf08-412a-949d-bf4bb4a140ca'>
+                <IndicatorItem condition='contains' id='5f71c4ae-adec-46f9-85a6-196273bd4328'>
+                    <Context document='FileItem' search='FileItem/Md5sum' type='mir'/>
+                    <Content type='md5'>380dfb7c4695be4f1d32d178056662be</Content>
+                </IndicatorItem>
+                <IndicatorItem condition='contains' id='44c0e840-be68-49c0-825f-207fe3567d8f'>
+                    <Context document='FileItem' search='FileItem/Md5sum' type='mir'/>
+                    <Content type='md5'>bedba9325fba353c146026a7ae970e8c</Content>
+                </IndicatorItem>
+                <IndicatorItem condition='contains' id='9282716e-753a-4510-bb3e-28d0851552f5'>
+                    <Context document='FileItem' search='FileItem/Md5sum' type='mir'/>
+                    <Content type='md5'>1c0fbff0f6a18ce6d05e0026b7423b64</Content>
+                </IndicatorItem>
+            </Indicator>
+            <Indicator operator='OR' id='6354c5b6-28e2-4bb7-8df7-14d80ba3ef42'>
+                <Indicator operator='AND' id='90cd4da2-5dab-4ce4-8005-45fee281e39b'>
+                    <IndicatorItem condition='contains' id='0cf3a23c-2c6b-4dfa-9ecb-395b2d068f2f'>
+                        <Context document='Email' search='Email/From' type='mir'/>
+                        <Content type='string'>no-reply@kpnmail.nl</Content>
+                    </IndicatorItem>
+                    <IndicatorItem condition='contains' id='7204193d-d7cd-4a53-b3ce-238ef37f8102'>
+                        <Context document='Email' search='Email/Body' type='mir'/>
+                        <Content type='string'>Bob Mols</Content>
+                    </IndicatorItem>
+                    <IndicatorItem condition='contains' id='8fb880f0-3ffb-4425-be52-a489b194b738'>
+                        <Context document='Email' search='Email/Body' type='mir'/>
+                        <Content type='string'>factuur</Content>
+                    </IndicatorItem>
+                    <IndicatorItem condition='contains' id='a73c8d76-cfb0-42e2-a0c2-f8bae1dcdcc5'>
+                        <Context document='Email' search='Email/Body' type='mir'/>
+                        <Content type='string'>bijlage</Content>
+                    </IndicatorItem>
+                    <IndicatorItem condition='contains' id='4c33db17-b6ec-4254-991e-48fb626898b3'>
+                        <Context document='Email' search='Email/Attachment/Name' type='mir'/>
+                        <Content type='string'>factuur</Content>
+                    </IndicatorItem>
+                </Indicator>
+                <Indicator operator='OR' id='70f2e3cc-6cb4-410e-add1-dc8da435c4eb'>
+                    <IndicatorItem condition='contains' id='04dcf036-46f6-4141-8bf3-d92626d1f349'>
+                        <Context document='Email' search='Email/ReceivedFromIP' type='mir'/>
+                        <Content type='string'>95.211.225.216</Content>
+                    </IndicatorItem>
+                    <IndicatorItem condition='contains' id='d525446f-46ce-48cd-b396-ab94534cf70a'>
+                        <Context document='Email' search='Email/ReceivedFromHost' type='mir'/>
+                        <Content type='string'>lcdalw1174.amhost.net</Content>
+                    </IndicatorItem>
+                    <IndicatorItem condition='contains' id='dea1b240-32be-4817-849c-18fbc623e623'>
+                        <Context document='Email' search='Email/Return-Path' type='mir'/>
+                        <Content type='string'>apache@lcdalw1174.amhost.net</Content>
+                    </IndicatorItem>
+                </Indicator>
+            </Indicator>
+            <Indicator operator='OR' id='c8001886-1f6c-4c0d-882f-e8a2d7e8350d'>
+                <IndicatorItem condition='contains' id='c419602c-ce00-4dbb-80c9-c51ffba14e3b'>
+                    <Context document='FileItem' search='FileItem/StringList/string' type='mir'/>
+                    <Content type='string'>0MME8M0800M0000M8945F8ME9MB500MM0000M55MM8BEC53M56575164MffM35M30M000000M588BM40M0c8B480c8B118B41306A028bMM7D08M5750ME85b00000085</Content>
+                </IndicatorItem>
+                <IndicatorItem condition='contains' id='e4038738-aec1-402a-bb61-9ceb7e4471ec'>
+                    <Context document='FileItem' search='FileItem/StringList/string' type='mir'/>
+                    <Content type='string'>PADDINGXXPADDINGPADDINGXXPADDINGPADDINGXXPADDINGPADDINGXXPADDINGPADDINGXXPADDINGPADDINGXXPADDINGPADDINGXXPADDINGPADDINGXX</Content>
+                </IndicatorItem>
+                <Indicator operator='AND' id='f864fde1-7de8-4e65-8f39-797aba2f0bb3'>
+                    <IndicatorItem condition='contains' id='ea30b7d8-f581-4110-b28a-441190572b74'>
+                        <Context document='FileItem' search='FileItem/StringList/string' type='mir'/>
+                        <Content type='string'>Your documents, photos, databases and other important files have been encrypted</Content>
+                    </IndicatorItem>
+                    <IndicatorItem condition='contains' id='c108df33-74a5-48a1-a0bf-0d1b17b4221c'>
+                        <Context document='FileItem' search='FileItem/StringList/string' type='mir'/>
+                        <Content type='string'>Private decryption key is stored on a secret Internet server and nobody candecrypt your files</Content>
+                    </IndicatorItem>
+                </Indicator>
+            </Indicator>
+        </Indicator>
+    </definition>
+</ioc>
